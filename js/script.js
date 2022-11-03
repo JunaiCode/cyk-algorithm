@@ -8,4 +8,8 @@ d.addEventListener("click",e=>{
     if(e.target.matches(".insertField")){
         insertNewField(e.target);
     }
+
+    if(e.target.matches(".applyCYK")){
+        //CODIGO ALGORITMO
+    }
 })

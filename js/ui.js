@@ -13,6 +13,7 @@ function showElement(selector){
 export function insertNewProduction(){
     hideElement(".insert-gram");
     showElement(".insertProduction");
+    showElement(".applyCYK");
     showElement(".dynamic-table");
     const $tbody = d.querySelector(".dynamic-table-body");
     const tr = d.createElement("tr");
