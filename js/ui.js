@@ -1,3 +1,4 @@
+import generateCYK from "./cyk.js";
 const d = document;
 
 function hideElement(selector){
@@ -45,4 +46,8 @@ export function insertNewField(button){
     input.setAttribute("type","text");
     td.appendChild(input);
     button.insertAdjacentElement("beforeBegin",td);
+}
+
+export function applyCYK(){
+    generateCYK();
 }

@@ -1,4 +1,4 @@
-import { insertNewProduction,insertNewField } from "./ui.js";
+import { insertNewProduction,insertNewField, applyCYK} from "./ui.js";
 
 const d = document;
 d.addEventListener("click",e=>{
@@ -8,8 +8,8 @@ d.addEventListener("click",e=>{
     if(e.target.matches(".insertField")){
         insertNewField(e.target);
     }
-
+    
     if(e.target.matches(".applyCYK")){
-        //CODIGO ALGORITMO
+        applyCYK();
     }
 })
