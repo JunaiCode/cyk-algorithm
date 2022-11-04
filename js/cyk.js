@@ -10,7 +10,7 @@ function getProductions(){
     elementsHTML.forEach((el)=>{
         let aux = [];
         el.childNodes.forEach((el)=>{
-            if(el.tagName == "TD")
+            if(el.tagName == "TD" && el.childNodes[0].value != '')
             aux.push(el.childNodes[0].value);
         })
         productions.push(aux);
