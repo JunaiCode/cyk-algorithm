@@ -14,7 +14,7 @@ function showElement(selector){
 export function insertNewProduction(){
     hideElement(".insert-gram");
     showElement(".insertProduction");
-    showElement(".applyCYK");
+    showElement(".insertString");
     showElement(".dynamic-table");
     const $tbody = d.querySelector(".dynamic-table-body");
     const tr = d.createElement("tr");
@@ -46,6 +46,15 @@ export function insertNewField(button){
     input.setAttribute("type","text");
     td.appendChild(input);
     button.insertAdjacentElement("beforeBegin",td);
+}
+
+export function insertString(){
+    hideElement(".dynamic-table");
+    hideElement(".insertProduction");
+    hideElement(".insertString");
+    showElement(".inputString");
+    showElement(".labelString");
+    showElement(".applyCYK");
 }
 
 export function applyCYK(){

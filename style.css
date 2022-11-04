@@ -56,10 +56,6 @@
     --primary-color: #ff6670;
   }
 
-.hidden{
-    visibility: hidden;
-}
-
 .center{
     display: block;
     margin: 0 auto;
@@ -93,4 +89,18 @@
 
 .insertProduction{
     margin-right:1rem;
+}
+
+.applyCYK{
+  margin-top: 1rem;
+}
+
+button{
+  cursor: pointer;
+}
+
+/*UTILITIES*/
+
+.hidden{
+  display: none;
 }

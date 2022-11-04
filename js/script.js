@@ -1,4 +1,4 @@
-import { insertNewProduction,insertNewField, applyCYK} from "./ui.js";
+import { insertNewProduction,insertNewField, applyCYK, insertString} from "./ui.js";
 
 const d = document;
 d.addEventListener("click",e=>{
@@ -7,6 +7,10 @@ d.addEventListener("click",e=>{
     }
     if(e.target.matches(".insertField")){
         insertNewField(e.target);
+    }
+
+    if(e.target.matches(".insertString")){
+        insertString();
     }
     
     if(e.target.matches(".applyCYK")){

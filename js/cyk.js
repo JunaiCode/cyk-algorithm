@@ -2,6 +2,7 @@ const d = document;
 
 export default function generateCYK(){
     getProductions();
+    getString();
 }
 
 function getProductions(){
@@ -16,4 +17,9 @@ function getProductions(){
         productions.push(aux);
     })
     return productions;
+}
+
+function getString(){
+    let string = d.querySelector(".inputString").value;
+    return string;
 }
