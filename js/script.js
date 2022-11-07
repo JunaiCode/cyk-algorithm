@@ -16,4 +16,9 @@ d.addEventListener("click",e=>{
     if(e.target.matches(".applyCYK")){
         applyCYK();
     }
+
+    if(e.target.matches(".back")){
+       window.location.assign("./index.html");
+    }
+    
 })

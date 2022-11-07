@@ -1,4 +1,4 @@
-import generateCYK from "./cyk.js";
+import generateCYK, { getProductions } from "./cyk.js";
 const d = document;
 
 function hideElement(selector){
@@ -9,6 +9,29 @@ function hideElement(selector){
 function showElement(selector){
     const $element = d.querySelector(selector);
     $element.classList.remove("hidden");
+}
+
+function message(matriz, message){
+    const $tbody = d.querySelector(".result-table-body"),
+    $title = d.querySelector(".title"),
+    $message = d.querySelector(".message");
+    for(let i=0;i<matriz.length;i++){
+        const tr = d.createElement("tr");
+        for (let j = 0; j < matriz[i].length; j++) {
+            const td = d.createElement("td");
+            td.value = matriz[i][j];
+            td.innerText= matriz[i][j];
+            tr.appendChild(td);
+        }
+        $title.innerText = "Matriz Resultante";
+        $tbody.appendChild(tr);
+    }
+    $message.innerText = message;
+    showElement(".result-table");
+    showElement(".back");
+    hideElement(".labelString");
+    hideElement(".inputString");
+    hideElement(".applyCYK");
 }
 
 export function insertNewProduction(){
@@ -58,5 +81,6 @@ export function insertString(){
 }
 
 export function applyCYK(){
-    generateCYK();
+    //Ejemplo de volver mensaje
+    message(getProductions(),"¡Esta cadena es generada por la gramatica!");
 }

@@ -5,7 +5,7 @@ export default function generateCYK(){
     getString();
 }
 
-function getProductions(){
+export function getProductions(){
     let productions= [];
     const elementsHTML = d.querySelectorAll(".production");
     elementsHTML.forEach((el)=>{

@@ -76,7 +76,7 @@
     cursor: pointer;
 }
 
-.dynamic-table{
+.dynamic-table, .result-table{
     display: table;
     margin: 2rem auto;
 }
@@ -103,4 +103,12 @@ button{
 
 .hidden{
   display: none;
+}
+
+.result-table{
+  border: thin solid black;
+  width: 50%;
+}
+.result-table td{
+  border: thin solid black;
 }
