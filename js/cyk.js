@@ -71,4 +71,12 @@ function CYK(cadena) {
         kConst++;
     }
     console.log(matrix)
+    let newMatrix = []
+    for (let i = 1; i < matrix.length - 1; i++) {
+        newMatrix[i - 1] = matrix[i]
+    }
+    for (let i = 0; i < newMatrix.length; i++) {
+        newMatrix[i].shift()
+    }
+    return newMatrix;
 }
