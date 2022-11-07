@@ -11,7 +11,7 @@ function showElement(selector){
     $element.classList.remove("hidden");
 }
 
-function message(matriz, message){
+function showResult(matriz, message){
     const $tbody = d.querySelector(".result-table-body"),
     $title = d.querySelector(".title"),
     $message = d.querySelector(".message");
@@ -82,5 +82,5 @@ export function insertString(){
 
 export function applyCYK(){
     //Ejemplo de volver mensaje
-    message(getProductions(),"¡Esta cadena es generada por la gramatica!");
+    showResult(getProductions(),"¡Esta cadena es generada por la gramatica!");
 }
