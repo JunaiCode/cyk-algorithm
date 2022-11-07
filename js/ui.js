@@ -1,4 +1,4 @@
-import generateCYK, { getProductions } from "./cyk.js";
+import generateCYK from "./cyk.js";
 const d = document;
 
 function hideElement(selector){
@@ -82,5 +82,6 @@ export function insertString(){
 
 export function applyCYK(){
     //Ejemplo de volver mensaje
-    showResult(getProductions(),"¡Esta cadena es generada por la gramatica!");
+    //showResult(matriz,"¡Esta cadena es generada por la gramatica!");
+    //ShowResult();
 }

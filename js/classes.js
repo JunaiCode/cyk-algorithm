@@ -1,4 +1,4 @@
-class Grammar{
+export class Grammar{
     constructor(productions){
         this.productions = productions
     }
@@ -14,7 +14,7 @@ class Grammar{
     }
 }
 
-class Production{
+export class Production{
     constructor(symbol, productions){
         this.symbol = symbol
         this.productions = productions

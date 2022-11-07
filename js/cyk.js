@@ -4,8 +4,7 @@ let grammar = new Grammar(null);
 
 
 export default function generateCYK() {
-    getProductions();
-    getString();
+
 }
 
 function getProductions() {

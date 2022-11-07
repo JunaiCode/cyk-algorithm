@@ -106,9 +106,11 @@ button{
 }
 
 .result-table{
-  border: thin solid black;
   width: 50%;
+  height: 50vh;
+  border-collapse: collapse;
 }
 .result-table td{
   border: thin solid black;
+  padding: 3rem;
 }
