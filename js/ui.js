@@ -1,3 +1,4 @@
+import { Grammar, Production } from "./classes.js";
 import generateCYK from "./cyk.js";
 const d = document;
 
@@ -78,6 +79,33 @@ export function insertString(){
     showElement(".inputString");
     showElement(".labelString");
     showElement(".applyCYK");
+    createGrammar();
+}
+
+function createGrammar(){
+
+    var th = document.querySelector(".dynamic-table-body");
+    let grammar = new Grammar();
+
+    for (let i = 0; i < th.children.length; i++) {
+        var row = th.children[i]
+        var columns = th.children[i].children.length
+        for (let j = 0; j < columns-1; j++) {
+            var cell = row.children[j]
+            if(j==0){
+                var input = cell.querySelector('input').value
+                var newProduction = new Production(input)
+            }else if(j!=1){
+                var input = cell.querySelector('input').value
+                newProduction.addProduction(input)
+            }
+            
+        }
+        grammar.addProduction(newProduction)
+    }
+
+    return grammar;
+    
 }
 
 export function applyCYK(){

@@ -1,6 +1,14 @@
 export class Grammar{
-    constructor(productions){
+    /*constructor(productions){
         this.productions = productions
+    }*/
+
+    constructor(){
+        this.productions = []
+    }
+
+    addProduction(production){
+        this.productions.push(production)
     }
 
     findProduction(variable){
@@ -15,9 +23,18 @@ export class Grammar{
 }
 
 export class Production{
-    constructor(symbol, productions){
+    /*constructor(symbol, productions){
         this.symbol = symbol
         this.productions = productions
+    }*/
+
+    constructor(symbol){
+        this.symbol = symbol
+        this.productions = []
+    }
+
+    addProduction(production){
+        this.productions.push(production)
     }
 
     getSymbol(){
