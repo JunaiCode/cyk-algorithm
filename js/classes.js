@@ -7,6 +7,10 @@ export class Grammar{
         this.productions = []
     }
 
+    getFProduction(){
+        return this.productions[0];
+    }
+
     addProduction(production){
         this.productions.push(production)
     }

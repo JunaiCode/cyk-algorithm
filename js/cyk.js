@@ -3,32 +3,43 @@ const d = document;
 let grammar = new Grammar(null);
 
 
-export default function generateCYK() {
+export function generateCYK() {
     grammar = createGrammar();
     var string = getString()
     var matrix = CYK(string)
     return matrix
 }
 
+export function getFirstSymbol(){
+    return grammar.getFProduction().getSymbol();
+}
+
+//Method for creating the grammar with each production
 function createGrammar(){
 
     var th = document.querySelector(".dynamic-table-body");
+    //create an empty grammar to add productions 
     let grammar = new Grammar();
 
     for (let i = 0; i < th.children.length; i++) {
+        //get the row with the rule of production
         var row = th.children[i]
+        //get the productions
         var columns = th.children[i].children.length
         for (let j = 0; j < columns-1; j++) {
             var cell = row.children[j]
+            //get the symbol for the production
             if(j==0){
                 var input = cell.querySelector('input').value
                 var newProduction = new Production(input)
+            //add the productions to the rule of production
             }else if(j!=1){
                 var input = cell.querySelector('input').value
                 newProduction.addProduction(input)
             }
             
         }
+        //add the created production to the grammar created before
         grammar.addProduction(newProduction)
     }
 

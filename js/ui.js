@@ -1,4 +1,4 @@
-import generateCYK from "./cyk.js";
+import {generateCYK, getFirstSymbol} from "./cyk.js";
 const d = document;
 
 function hideElement(selector){
@@ -11,6 +11,7 @@ function showElement(selector){
     $element.classList.remove("hidden");
 }
 
+//this method displays the matrix used by CYK algorithm 
 function showResult(matriz, message){
     const $tbody = d.querySelector(".result-table-body"),
     $title = d.querySelector(".title"),
@@ -34,6 +35,7 @@ function showResult(matriz, message){
     hideElement(".applyCYK");
 }
 
+//this method adds the fields for getting another rule of production
 export function insertNewProduction(){
     hideElement(".insert-gram");
     showElement(".insertProduction");
@@ -63,6 +65,7 @@ export function insertNewProduction(){
     $tbody.appendChild(tr);
 }
 
+//this method adds a new input field for the rule of production
 export function insertNewField(button){
     const td = d.createElement("td");
     const input = d.createElement("input");
@@ -71,6 +74,7 @@ export function insertNewField(button){
     button.insertAdjacentElement("beforeBegin",td);
 }
 
+//this method displays the screnn for getting the string without loosing the data of the grammar
 export function insertString(){
     hideElement(".dynamic-table");
     hideElement(".insertProduction");
@@ -80,14 +84,22 @@ export function insertString(){
     showElement(".applyCYK");
 }
 
+//this method cretes the grammar and executes CYK algorithm
 export function applyCYK(){
     var solution = generateCYK();
+    console.log(getFirstSymbol())
+    var symbol = getFirstSymbol();
+    //verifies if the initial production produces the string 
     let finalCell = (solution[0].length)-1
     let message = ""
     if(solution[0][finalCell].length == 0){
         message = 'Esta cadena no es generada por la gramática'
     }else {
+        if(solution[0][finalCell].includes(symbol)){
         message = '¡Esta cadena es generada por la gramatica!'
+        }else{
+            message = 'Esta cadena no es generada por la gramática'
+        }
     }
     showResult(solution, message)
 }
