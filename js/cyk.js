@@ -10,12 +10,12 @@ export function generateCYK() {
     return matrix
 }
 
-export function getFirstSymbol(){
+export function getFirstSymbol() {
     return grammar.getFProduction().getSymbol();
 }
 
 //Method for creating the grammar with each production
-function createGrammar(){
+function createGrammar() {
 
     var th = document.querySelector(".dynamic-table-body");
     //create an empty grammar to add productions 
@@ -26,25 +26,25 @@ function createGrammar(){
         var row = th.children[i]
         //get the productions
         var columns = th.children[i].children.length
-        for (let j = 0; j < columns-1; j++) {
+        for (let j = 0; j < columns - 1; j++) {
             var cell = row.children[j]
             //get the symbol for the production
-            if(j==0){
+            if (j == 0) {
                 var input = cell.querySelector('input').value
                 var newProduction = new Production(input)
-            //add the productions to the rule of production
-            }else if(j!=1){
+                //add the productions to the rule of production
+            } else if (j != 1) {
                 var input = cell.querySelector('input').value
                 newProduction.addProduction(input)
             }
-            
+
         }
         //add the created production to the grammar created before
         grammar.addProduction(newProduction)
     }
 
     return grammar;
-    
+
 }
 
 function getProductions() {
@@ -98,8 +98,17 @@ function CYK(cadena) {
                 console.log(iplus + ' ' + jmin)
                 console.log(i + ' ' + j)
                 if (first.length !== 0 && second.length !== 0) {
-                    let prod = first[0] + second[0]
-                    let found = grammar.findProduction(prod)
+                    let found = []
+                    for (let u = 0; u < first.length; u++) {
+                        for (let v = 0; v < second.length; v++) {
+                            let prod = first[u] + second[v]
+                            let comb = grammar.findProduction(prod)
+                            if(comb.length != 0){
+                                found = found.concat(comb)
+                            }
+                        }
+
+                    }
                     if (found.length != 0) {
                         matrix[i][j] = found
                     }
