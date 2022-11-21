@@ -103,14 +103,17 @@ function CYK(cadena) {
                         for (let v = 0; v < second.length; v++) {
                             let prod = first[u] + second[v]
                             let comb = grammar.findProduction(prod)
+                            console.log(prod)
                             if(comb.length != 0){
+                                console.log("Antes "+found+" encontro "+comb)
                                 found = found.concat(comb)
+                                console.log("Quedo " + found)
                             }
                         }
 
                     }
                     if (found.length != 0) {
-                        matrix[i][j] = found
+                        matrix[i][j] = matrix[i][j].concat(found)
                     }
                 }
             }
